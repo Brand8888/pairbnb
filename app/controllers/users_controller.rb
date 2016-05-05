@@ -3,11 +3,27 @@ class UsersController < Clearance::UsersController
     before_action :check_user, only: [:edit, :show]
 
     def edit
+      @user = User.find(params[:id])
     end
 
     def show
       @user = User.find(params[:id])
     end
+
+    def edit
+      @user = User.find(params[:id])
+    end
+
+    def update
+      @user = User.find(params[:id])
+
+      if @user.update(permit_params)
+        redirect_to @user
+      else
+        render 'edit'
+      end
+    end
+
 
     private
     def user_from_params
@@ -35,7 +51,7 @@ class UsersController < Clearance::UsersController
     end
 
     def permit_params
-        params.require(:user).permit(:first_name, :last_name, :gender, "birthday(1i)","birthday(2i)","birthday(3i)", :contact_number, :country, :email, :password)
+        params.require(:user).permit(:first_name, :last_name, :gender, "birthday(1i)","birthday(2i)","birthday(3i)", :contact_number, :country, :email, :password, :description)
     end
 
     def check_user
