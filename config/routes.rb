@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'static#index'
 
+  # get "/users/my_profile" , to: "users/my_profile"
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

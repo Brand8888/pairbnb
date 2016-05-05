@@ -8,6 +8,11 @@
 </head>
 <body>
 
+<% if signed_in? %>
+    <%= link_to 'My Profile', user_path(current_user.id)  %>
+  <%end%>
+
+
   <script>
     window.fbAsyncInit = function() {
       FB.init({

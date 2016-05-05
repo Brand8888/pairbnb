@@ -1,6 +1,12 @@
 class UsersController < Clearance::UsersController
 
+    before_action :check_user, only: [:edit, :show]
+
     def edit
+    end
+
+    def show
+      @user = User.find(params[:id])
     end
 
     private
@@ -30,5 +36,13 @@ class UsersController < Clearance::UsersController
 
     def permit_params
         params.require(:user).permit(:first_name, :last_name, :gender, "birthday(1i)","birthday(2i)","birthday(3i)", :contact_number, :country, :email, :password)
+    end
+
+    def check_user
+      @user = User.find(params[:id])
+      unless @user && @user == current_user
+        flash[:warning] = "Invalid Page!"
+        redirect_to '/'
+      end
     end
 end
