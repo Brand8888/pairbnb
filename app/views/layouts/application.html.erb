@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <h3>PairBnB</h3>
   <% if signed_in? %>
   Signed in as: <%= current_user.email %>
   <%= button_to 'Sign out', sign_out_path, method: :delete %>
