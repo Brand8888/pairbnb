@@ -29,6 +29,8 @@ gem 'country_select'
 gem 'figaro'
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

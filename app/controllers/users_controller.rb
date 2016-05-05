@@ -1,5 +1,8 @@
 class UsersController < Clearance::UsersController
 
+    def edit
+    end
+
     private
     def user_from_params
       user_params = params[:user] || Hash.new

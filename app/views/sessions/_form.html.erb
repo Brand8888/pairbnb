@@ -13,6 +13,18 @@
     <%= form.submit %>
   </div>
 
+<div class="auth-facebook">
+    <%= link_to "Sign up with Facebook", "/auth/facebook" %>
+</div>
+
+<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
+
+
   <div class="other-links">
     <% if Clearance.configuration.allow_sign_up? %>
       <%= link_to t(".sign_up"), sign_up_path %>
