@@ -1,23 +1,17 @@
-<h1>My Account</h1>
+<h3>My Account</h3>
 <!-- <p>Edit your profile on this page</p> -->
 
-<p>Name</p>
-<%= @user.first_name %>
-<%= @user.last_name %>
+<h3>Full Name :</h3>
+<%= @user.first_name %><%= @user.last_name %>
 
-<p> Email </p>
-<%= @user.email %>
+<h3> Email </h3><%= @user.email %>
 
-<p> Contact Number </p>
-<%= @user.contact_number %>
+<h3> Contact Number </h3><%= @user.contact_number %>
 
-<p> Nationality </p>
-<%= @user.country %>
+<h3> Nationality </h3><%= @user.country %>
 
-<p> Password </p>
-<%= @user.password %>
+<h3> Password </h3><%= @user.password %>
 
-<p> Description </p>
-<%= @user.description %>
-
+<h3> Description </h3><%= @user.description %>
+<br><br>
 <%= link_to "Edit Profile", edit_user_path(@user)%>

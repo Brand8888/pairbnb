@@ -1,0 +1,9 @@
+<h1>Your listing</h1>
+
+
+<%= @listing.name %>
+<%= @listing.desc %>
+
+<%= link_to 'Edit Listing' , edit_listing_path(@listing) %>
+
+<%= link_to 'Delete Listing' , @listing, method: :delete, data: {confirm:"Are you sure?"} %>

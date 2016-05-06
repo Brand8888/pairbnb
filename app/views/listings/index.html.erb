@@ -1,0 +1,8 @@
+<h1>Listing#index</h1>
+<p>Find me in app/views/listing/index.html.erb</p>
+
+<%= link_to 'Create new Listing', new_listing_path %>
+<% @listings.each do |x| %>
+  <%= link_to x.name, listing_path(x) %>
+  <%= x.desc %>
+<% end %>
