@@ -1,8 +1,9 @@
-<h1>Listing#index</h1>
-<p>Find me in app/views/listing/index.html.erb</p>
+<h1>All Your Listings</h1>
 
 <%= link_to 'Create new Listing', new_listing_path %>
+<br><br><br>
 <% @listings.each do |x| %>
-  <%= link_to x.name, listing_path(x) %>
-  <%= x.desc %>
+  <%= link_to x.name, listing_path(x) %><br>
+  <%= x.desc %><br>
+  Tag: <%=raw x.tag_list.map {|t| link_to t, tag_path(t)}.join(', ')%><br><br>
 <% end %>

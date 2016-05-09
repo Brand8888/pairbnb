@@ -25,6 +25,8 @@ class UsersController < Clearance::UsersController
     end
 
 
+
+
     private
     def user_from_params
       user_params = params[:user] || Hash.new

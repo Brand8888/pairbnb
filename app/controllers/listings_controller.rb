@@ -4,7 +4,11 @@ class ListingsController < ApplicationController
 
 
   def index
-    @listings = current_user.listings.all
+    if params[:tag]
+      @listings = current_user.listings.tagged_with(params[:tag])
+    else
+      @listings = current_user.listings.all
+    end
   end
 
   def show
@@ -55,5 +59,5 @@ end
 private
 
 def permit_params
-    params.require(:listing).permit(:name, :desc, :country, :state, :city, :address, :property_type, :room_type, :no_of_guest, :price_per_night)
+    params.require(:listing).permit(:tag_list, :name, :desc, :country, :state, :city, :address, :property_type, :room_type, :no_of_guest, :price_per_night)
 end

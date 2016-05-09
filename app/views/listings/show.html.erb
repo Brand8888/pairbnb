@@ -1,8 +1,9 @@
 <h1>Your listing</h1>
 
 
-<%= @listing.name %>
-<%= @listing.desc %>
+<%= @listing.name %><br>
+<%= @listing.desc %><br>
+Tag: <%=raw @listing.tag_list.map {|t| link_to t, tag_path(t)}.join(', ')%><br><br>
 
 		<% if current_user.id == @listing.user_id %>
 <%= link_to 'Edit Listing' , edit_listing_path(@listing) %>

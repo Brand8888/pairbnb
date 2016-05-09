@@ -32,6 +32,8 @@ gem 'figaro'
 # gem 'unicorn'
 gem 'omniauth'
 gem 'omniauth-facebook'
+#Tagging Gem
+gem 'acts-as-taggable-on'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
