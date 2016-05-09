@@ -17,4 +17,5 @@ class SessionsController < ApplicationController
         redirect_to @next, :notice => @notice
   end
 
+
 end

@@ -1,1 +1,9 @@
 <h3>Home Page</h3>
+
+
+
+
+<% @listings.each do |x| %>
+  <%= link_to x.name, listing_path(x) %>
+  <%= x.desc %>
+<% end %>

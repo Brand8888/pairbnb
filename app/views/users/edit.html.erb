@@ -1,52 +1,57 @@
 
-<h1>This is where you edit your profile</h1>
+<h3>This is where you edit your profile</h3>
 
 <%= form_for @user do |form| %>
 
+<div class="edit-form">
 <div class="text-field">
   <%= form.label :email %>
   <%= form.text_field :email, type: 'email' %>
 </div>
-
+<br>
 <div class="password-field">
   <%= form.label :password %>
   <%= form.password_field :password %>
 </div>
-
+<br>
 <div class="first_name-field">
   <%= form.label :first_name %>
   <%= form.text_field :first_name %>
 </div>
-
+<br>
 <div class="last_name-field">
   <%= form.label :last_name %>
   <%= form.text_field :last_name %>
 </div>
-
+<br>
 <div class="gender-field">
   <%= form.label :gender %>
   <%= form.select :gender, options_for_select([["Male", "M"], ["Female", "F"], ["Others", "O"]]) %>
 </div>
-
+<br>
 <div class="birthday-field">
   <%= form.label :birthday %>
   <%= form.date_select :birthday , start_year: Date.today.year-100, end_year: Date.today.year%>
 </div>
-
+<br>
 <div class="contact_number-field">
   <%= form.label :contact_number %>
   <%= form.telephone_field :contact_number %>
 </div>
-
-<div class="description-field">
-  <%= form.label :description %>
-  <%= form.text_area :description %>
-</div>
-
+<br>
 <div class="country-field">
   <%= form.label :country %>
   <%= form.country_select :country %>
 </div>
-
+<br>
+<div class="description-field">
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+</div>
+<br>
+<div class="edit-btn">
 <%= form.submit "Update Profile"%>
+</div>
 <%end%>
+
+</div>

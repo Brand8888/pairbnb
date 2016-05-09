@@ -1,3 +1,277 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// // Place all the styles related to the users controller here.
+// // They will automatically be included in application.css.
+// // You can use Sass (SCSS) here: http://sass-lang.com/
+ @import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+// body {
+//   font-family: "Lato", sans-serif;
+//   text-align: center;
+//   height: 100vh;
+//   overflow: hidden;
+//   margin: 0;
+
+//   /* --- Form styling --- */
+// }
+body fieldset {
+  border: none;
+}
+body fieldset:valid > button {
+  opacity: 1;
+}
+body fieldset:valid > button:hover {
+  opacity: 1;
+  background: #CD3C3C;
+}
+
+.button {
+  width: 270px;
+  opacity: .5;
+  cursor: pointer;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  border: none;
+  font-family: "Lato", sans-serif;
+  padding: 20px;
+  background-color: #f65252;
+  color: white;
+  outline: none;
+  margin-top: 15px;
+  margin-left: 435px;
+}
+.kickass_field {
+  margin: auto;
+  position: relative;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  height: 100px;
+  right: 0;
+  width: 280px;
+}
+.kickass_field lable {
+  font-size: 14px;
+  position: absolute;
+  height: 100px;
+  overflow: hidden;
+  left: 0;
+  width: 100%;
+  top: 50px;
+  text-align: left;
+  color: #F65252;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+  pointer-events: none;
+  -webkit-transition: all .2s .3s;
+  transition: all .2s .3s;
+}
+.kickass_field lable span {
+  font-size: 10px;
+  color: #9f9fb5;
+  clear: left;
+  opacity: 0;
+  font-weight: 400;
+  display: block;
+  -webkit-transition: opacity .5s .0s;
+  transition: opacity .5s .0s;
+}
+.kickass_field lable:after {
+  width: 4px;
+  content: '';
+  height: 8px;
+  border-bottom: 2px solid #f65252;
+  border-right: 2px solid #f65252;
+  -webkit-transform: translateX(-10px) rotate(45deg);
+          transform: translateX(-10px) rotate(45deg);
+  position: absolute;
+  left: 120%;
+  top: 30px;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+.kickass_field input {
+  border: none;
+  color: #6E738A;
+  font-weight: 400;
+  padding: 40px 0px 10px 0px;
+  background: transparent;
+  letter-spacing: 1px;
+  outline: none;
+  font-family: "Lato", sans-serif;
+  height: 30px;
+  width: 280px;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-property: transform;
+  transition-property: transform, -webkit-transform;
+  font-size: 14px;
+  box-shadow: 0px 2px #f65252;
+}
+.kickass_field input:focus + lable {
+  color: #F65252;
+  font-size: 10px;
+  top: 10px;
+  -webkit-transition: all .2s .0s;
+  transition: all .2s .0s;
+}
+.kickass_field input:focus + lable span {
+  opacity: 1;
+  -webkit-transition: opacity .5s .3s;
+  transition: opacity .5s .3s;
+}
+.kickass_field input:valid + lable {
+  font-size: 10px;
+  top: 10px;
+  color: #f65252;
+}
+.kickass_field input[type="password"]:valid + lable span {
+  color: #99B62F;
+}
+.kickass_field input:valid + lable span {
+  opacity: 1;
+  -webkit-transition: opacity .3s 0s;
+  transition: opacity .3s 0s;
+}
+.kickass_field input:valid + lable::after {
+  display: block;
+  left: 100%;
+}
+.kickass_field input:invalid {
+  color: #f9f9f9;
+}
+.kickass_field input:focus:invalid {
+  color: #6E738A;
+}
+
+/* --- End Form styling --- */
+/* --- Begin template styling --- */
+// .container {
+//   background: #f9f9f9;
+//   height: 100%;
+//   border: 14px solid white;
+//   padding: 40px;
+//   box-sizing: border-box;
+//   /* --- End template styling --- */
+// }
+// .container_inner {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 50%;
+//   -webkit-transform: translateY(-50%);
+//           transform: translateY(-50%);
+// }
+// .container h1, .container h2 {
+//   font-weight: 300;
+// }
+// .container h1 {
+//   margin: 0;
+//   color: #6E738A;
+// }
+// .container p {
+//   color: #6E738A;
+//   font-weight: 300;
+//   margin-top: 40px;
+// }
+// .container .love span {
+//   font-size: 12px;
+//   color: #bcbcbc;
+//   font-weight: 300;
+// }
+// .container .love span a {
+//   color: #f65252;
+//   font-weight: 700;
+// }
+// .container .love span img {
+//   position: relative;
+//   margin: 3px;
+//   top: 7px;
+// }
+// .container h2 {
+//   margin: 7px 0 24px 0;
+//   font-size: 22px;
+//   color: #9A9FB5;
+// }
+// .container a {
+//   color: #f65252;
+//   text-decoration: none;
+// }
+// .container a:hover {
+//   text-decoration: underline;
+// }
+
+
+
+// Profile Page //
+
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+.toppad
+{margin-top:20px;
+}
+
+.text-info {
+    color: #31708f;
+    font-size: 14px;
+    margin-left: -100px;
+
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    margin-left: 10px;
+}
+
+.btn-sm, .btn-group-sm > .btn {
+
+    margin-right: 8px;
+}
+
+.panel-info > .panel-heading {
+    color: white;
+    background-color: #f14444;
+}
+
+.panel-info {
+    border-color: #F14444;
+    margin-top: -20px;
+}
+
+.edit-form{
+margin-left:  520px;
+margin-top: 30px;
+
+}
+
+.edit-btn{
+margin-left: 100px;
+
+}

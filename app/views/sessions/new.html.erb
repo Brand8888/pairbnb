@@ -1,6 +1,37 @@
-<div id="clearance" class="sign-in">
+
+<!-- <div id="clearance" class="sign-in">
   <h2><%= t(".title") %></h2>
 
   <%= render partial: '/sessions/form' %>
 
-</div>
+</div> -->
+
+<form method="post", action="/session">
+  <div class='container'>
+    <div class='container_inner'>
+        <fieldset>
+          <div class='kickass_field'>
+            <input maxlength='30' required='required' type='email' name='session[email]'>
+
+            <lable>
+              Email address
+              <span>Your current email address</span>
+            </lable>
+          </div>
+
+          <div class='kickass_field'>
+            <input maxlength='30' required='required' type='password' name='session[password]'>
+            <lable>
+              Password
+              <span>Minimum of 6 characters</span>
+            </lable>
+          </div>
+
+          <div class="button">
+            <input type='submit' value='Sign In'>
+          </div>
+        </fieldset>
+      </br>
+    </div>
+  </div>
+</form>

@@ -1,15 +1,51 @@
-<div id="clearance" class="sign-up">
-  <h2><%= t(".title") %></h2>
+<!-- Begin container -->
 
-  <%= form_for @user do |form| %>
-    <%= render partial: '/users/form', object: form %>
+  <!-- <%= form_for @user do |form| %> -->
 
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
+<form method="post", action="/users">
+  <div class='container'>
+    <div class='container_inner'>
+      <br>
 
-    <div class="other-links">
-      <%= link_to t(".sign_in"), sign_in_path %>
-    </div>
-  <% end %>
-</div>
+      <fieldset>
+        <div class='kickass_field'>
+            <input maxlength='30' required='required' type='email' name='user[email]'>
+          <lable>
+            E-mail
+            <span>Your Current E-mail</span>
+          </lable>
+        </div>
+
+
+        <div class='kickass_field'>
+            <input maxlength='30' required='required' type='password' name='user[password]'>
+          <lable>
+            Password
+            <span>Minimum of 6 characters</span>
+          </lable>
+        </div>
+
+
+        <div class='kickass_field'>
+            <input maxlength='30' required='required' type='text' name='user[first_name]'>
+          <lable>
+            First Name
+            <span>First Name</span>
+          </lable>
+        </div>
+        <div class='kickass_field'>
+            <input maxlength='30' required='required' type='text' name='user[last_name]'>
+          <lable>
+            Last Name
+            <span>Last Name</span>
+          </lable>
+        </div>
+
+        <div class="button">
+          <input type='submit' value='Sign In'>
+        </div>
+
+        <%end%>
+      </fieldset>
+    </br>
+</form>

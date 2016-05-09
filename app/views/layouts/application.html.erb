@@ -1,80 +1,232 @@
 <!DOCTYPE html>
 <html>
-  <head>
+    <head>
 
-    <title>AirBnB</title>
-    <link rel="shortcut icon" href="images/bnblogo.png"/>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-      <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-      <%= csrf_meta_tags %>
+        <title>AirBnB</title>
+        <link rel="shortcut icon" href="bnblogo.png"><link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-findcond ">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+      <% if signed_in? %>
+                <%= link_to image_tag('bnblogo.png'), root_path(current_user), class:"navbar-brand"%>
+      <%else%>
+                <%=link_to image_tag('bnblogo.png'), root_path, class:"navbar-brand"%>
+      <%end%>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <i class="fa fa-fw fa-bell-o"></i>
+                                Notifications
+                                <span class="badge">0</span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-fw fa-tag"></i>
+                                        <span class="badge">Promotion</span>
+                                        Last call for Promotion!
+                                        <span class="badge">Listing</span>
+                                        Enquiry: I was checking..</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-fw fa-thumbs-o-up"></i>
+                                        <span class="badge">Booking</span>
+                                        Booking Confirmed</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-fw fa-thumbs-o-up"></i>
+                                        <span class="badge">Listing</span>
+                                        Enquiry: Hi There!</a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-fw fa-thumbs-o-up"></i>
+                                        <span class="badge">Game</span>
+                                        sayfasında iletiniz beğenildi</a>
+                                </li>
+                            </ul>
+                        </li>
 
 
-  </head>
+                        <li class="active">
+                            <a href="#">My Trips<span class="sr-only">(current)</span>
+                            </a>
+                        </li>
 
-  <% if signed_in? %>
-
-  <body>
-    <nav class="navbar navbar-findcond ">
-        <div class="container">
-    		<div class="navbar-header">
-    			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-    				<span class="sr-only">Toggle navigation</span>
-    				<span class="icon-bar"></span>
-    				<span class="icon-bar"></span>
-    				<span class="icon-bar"></span>
-    			</button>
-    		</div>
+            <% if signed_in? %>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.first_name %>
+                                <span class="caret"></span>
+                            </a>
 
 
-        <%= link_to 'PairBnB', root_path(current_user), class:"navbar-brand"%>
+                            <ul class="dropdown-menu" role="menu">
 
-    		<div class="collapse navbar-collapse" id="navbar">
-    			<ul class="nav navbar-nav navbar-right">
-    				<li class="dropdown">
-    					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-bell-o"></i> Notifications <span class="badge">0</span></a>
-    					<ul class="dropdown-menu" role="menu">
-    						<li><a href="#"><i class="fa fa-fw fa-tag"></i> <span class="badge">Music</span> sayfası <span class="badge">Video</span> sayfasında etiketlendi</a></li>
-    						<li><a href="#"><i class="fa fa-fw fa-thumbs-o-up"></i> <span class="badge">Music</span> sayfasında iletiniz beğenildi</a></li>
-    						<li><a href="#"><i class="fa fa-fw fa-thumbs-o-up"></i> <span class="badge">Video</span> sayfasında iletiniz beğenildi</a></li>
-    						<li><a href="#"><i class="fa fa-fw fa-thumbs-o-up"></i> <span class="badge">Game</span> sayfasında iletiniz beğenildi</a></li>
-    					</ul>
-    				</li>
-    				<li class="active"><a href="#">My Trips<span class="sr-only">(current)</span></a></li>
-    				<li class="dropdown">
-    					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.first_name %> <span class="caret"></span></a>
-    					<ul class="dropdown-menu" role="menu">
+                                <li><%= link_to 'My Profile' , user_path(current_user) %></li>
+                                <li class="divider"></li>
+                                <li><%= link_to 'My Listings', listings_path %></li>
+                                <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-right search-form" role="search">
+                        <input type="text" class="form-control" placeholder="Search"/>
+                    </form>
+                <%else%>
 
-    						<li><%= link_to 'My Profile' , user_path(current_user) %></li>
-    						<li class="divider"></li>
-    						<li><%= link_to 'My Listings', listings_path %></li>
-    						<li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
-    					</ul>
-    				</li>
-    			</ul>
-    			<form class="navbar-form navbar-right search-form" role="search">
-    				<input type="text" class="form-control" placeholder="Search" />
-    			</form>
-    		</div>
-    	</div>
-    </nav>
+                      <ul class="nav navbar-nav navbar-right">
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
 
-    <%end%>
+<ul id="login-dp" class="dropdown-menu">
+  <li>
+     <div class="row">
+        <div class="col-md-12">
+          Login via
+          <div class="social-buttons">
+            <a href="/auth/facebook" class="btn btn-tw"><i class="fa fa-twitter"></i> Facebook</a>
+            <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+          </div>
+                          <p>or</p>
+           <form class="form" role="form" method="post" action="/session" accept-charset="UTF-8" id="login-nav">
+              <div class="form-group">
+                 <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                 <input type="email" name='session[email]' class="form-control" id="exampleInputEmail2" placeholder="Email address" required >
+              </div>
+              <div class="form-group">
+                 <label class="sr-only" for="exampleInputPassword2">Password</label>
+                 <input type="password" name='session[password]'class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                       <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+              </div>
+
+              <div class="form-group">
+
+                <div class="submit-field"><input type="submit" name="commit" value="Sign in"></div>
+
+              </div>
+              <div class="checkbox">
+                 <label>
+                 <input type="checkbox"> keep me logged-in
+                 </label>
+              </div>
+           </form>
+        </div>
+        <div class="bottom text-center">
+          New here ? <a href="/sign_up"><b>Join Us</b></a>
+        </div>
+     </div>
+  </li>
+</ul>
+  </li>
+</ul>
 
 
-  <% if signed_in? %>  <h1>Hello <%= current_user.first_name %>!</h1>
-<% else %>
-  <%= link_to 'Sign in', sign_in_path %>
 <% end %>
+              </div>
 
-<div id="flash">
-  <% flash.each do |key, value| %>
-    <div class="flash <%= key %>"><%= value %></div>
-  <% end %>
+            </div>
+        </nav>
+
+
+        <% if !signed_in? %>
+
+        <% end %>
+
+        <div id="flash">
+            <% flash.each do |key, value| %>
+            <div class="flash <%= key %>"><%= value %></div>
+            <% end %>
+        </div>
+
+        <div id="container">
+            <%= yield %>
+        </div>
+
+    </body>
+
+
+
+
+<footer>
+  <div class= "footer_box">
+  <div class="container text-center">
+    <hr />
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li><a href="#">Travel Blog</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li><a href="#">Help</a></li>
+          <li><a href="#">Trust & Safety</a></li>
+        </ul>
+      </div>
+      <div class="col-md-3">
+        <ul class="nav nav-pills nav-stacked">
+          <li><a href="#">Why Host</a></li>
+          <li><a href="#">Hospitality</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <hr>
+    <div class="row">
+        <div class="col-lg-12">
+            <ul class="nav nav-pills nav-justified">
+                <li><a href="/">© 2016 AirBnB.</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Privacy</a></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
-<div id="container">
-<%= yield %>
-</div>
+<!-- Social media -->
 
-</body>
+
+<div class="container">
+	<div class="social-media">
+
+                                 <ul class="social">
+                                  <li class="facebook"><a href="http://facebook.com/alterowo"><i class="fa fa-facebook fa-3x"></i></a></li>
+                                  <li class="twitter"><a href="http://twitter.com/Kyokushinowa"><i class="fa fa-twitter fa-3x"></i></a></li>
+                                  <li class="pinterest"><a href="http://www.pinterest.com/beatagibalska/"><i class="fa fa-pinterest-p fa-3x"></i></a></li>
+                                  <li class="behance"><a href="https://www.behance.net/Kurnikowa"><i class="fa fa-behance fa-3x"></i></a></li>
+                                </ul>
+                          </div>
+    </div>
+    </div>
+
+</div>
+</div>
+</footer>
 </html>
